@@ -31,20 +31,24 @@
     </header>
 
     <section class="card">
-      <p data-t="intro_1">Imagine calling a big company. A receptionist listens for a moment, then puts you through: "That sounds like billing — let me connect you." Put through to the wrong team, and you wait twice as long.</p>
-      <p data-t="intro_2">AI systems often work the same way. Instead of one AI doing everything, there are several "skills", each good at one job. A router reads your request first and picks which skill should handle it.</p>
+      <p data-t="intro_1">Imagine calling a big company. A receptionist listens, then says: "That sounds like billing. Let me put you through." If they send you to the wrong team, you wait twice as long.</p>
+      <p data-t="intro_2">Many AI systems work the same way. Instead of one AI doing everything, there are several "skills". Each skill is good at one job. A router reads your request first, and picks which skill should handle it.</p>
       <p data-t="intro_3">The router on this page has 3 skills to choose from:</p>
       <ul class="stories">
         <li><b>bug-fixer</b> — fixes broken or crashing code</li>
         <li><b>writer</b> — drafts blog posts and articles</li>
         <li><b>release-notes-helper</b> — writes what changed in a new version</li>
       </ul>
-      <p data-t="intro_4">Each skill has a short list of trigger words. The router scores every skill by how many of its words appear in your request — 3 of 7 words is a score of 0.43. The highest score wins. If even the best one scores under 0.2, the router doesn't guess: it says a person should decide.</p>
+      <p data-t="intro_4">Each skill has a short list of words it looks for. The router checks how many of those words are in your request, and gives each skill a score. The highest score wins. If no skill scores high enough, the router does not guess. It says a person should decide.</p>
+      <details class="grownups">
+        <summary data-t="more_detail">More detail</summary>
+        <p class="muted" data-t="intro_4_detail">Each skill has a short list of trigger words. The router scores every skill by how many of its words appear in your request — 3 of 7 words is a score of 0.43. The highest score wins. If even the best one scores under 0.2, the router doesn't guess: it says a person should decide.</p>
+      </details>
     </section>
 
     <section class="card">
       <h2 data-t="examples_heading">6 examples: who got the job?</h2>
-      <p data-t="examples_help">Each example shows a request, then the score every skill got and who won.</p>
+      <p data-t="examples_help">Each example shows a request, the score each skill got, and who won.</p>
       <p class="muted" data-t="legend">
         <span class="tag">[CHECKING]</span> each skill's score, and the words that matched ·
         <span class="tag">[ROUTED TO]</span> the skill that gets the job ·
@@ -71,7 +75,7 @@
 <span class="tag">[ROUTED TO]</span> release-notes-helper
 <span class="tag">[WHY]</span> Highest keyword overlap with this skill's trigger terms.
 📋 Rule-based</pre>
-          <p class="ex-why caught" data-t="ex2_why">✅ Right skill. "write" also matched the writer a little, but "release", "notes" and "version" won clearly.</p>
+          <p class="ex-why caught" data-t="ex2_why">✅ Right skill. "write" matched the writer a little, but "release", "notes" and "version" won easily.</p>
         </li>
         <li class="ex">
           <p class="ex-what"><span data-t="ex_asked">You ask:</span> <code class="ex-in">draft a blog post announcing the fix for the login bug</code></p>
@@ -82,7 +86,7 @@
 <span class="tag">[ROUTED TO]</span> writer
 <span class="tag">[WHY]</span> Highest keyword overlap with this skill's trigger terms.
 📋 Rule-based</pre>
-          <p class="ex-why caught" data-t="ex3_why">✅ Right skill, in a close race. It's about a bug fix, so bug-fixer scored too — but the job is a blog post, and the writer matched more.</p>
+          <p class="ex-why caught" data-t="ex3_why">✅ Right skill, but close. It is about a bug fix, so bug-fixer scored too. But the job is a blog post, and the writer matched more.</p>
         </li>
         <li class="ex">
           <p class="ex-what"><span data-t="ex_asked">You ask:</span> <code class="ex-in">my app keeps crashing</code></p>
@@ -91,7 +95,7 @@
 <span class="tag">[CHECKING]</span> writer                -&gt; score: 0.00
 <span class="tag">[CHECKING]</span> release-notes-helper  -&gt; score: 0.00
 <span class="tag">[NO CONFIDENT MATCH]</span> No skill scored above the threshold (0.2) — a real router would ask a human instead of guessing.</pre>
-          <p class="ex-why missed" data-t="ex4_why">❌ Gave up. Clearly a bug — but the rule knows "crash", not "crashing". To this rule, they are different words.</p>
+          <p class="ex-why missed" data-t="ex4_why">❌ Gave up. This is clearly a bug. But the rule knows "crash", not "crashing". To this rule, they are different words.</p>
         </li>
         <li class="ex">
           <p class="ex-what"><span data-t="ex_asked">You ask:</span> <code class="ex-in">my blog post has a broken link</code></p>
@@ -111,16 +115,16 @@
 <span class="tag">[CHECKING]</span> writer                -&gt; score: 0.00
 <span class="tag">[CHECKING]</span> release-notes-helper  -&gt; score: 0.00
 <span class="tag">[NO CONFIDENT MATCH]</span> No skill scored above the threshold (0.2) — a real router would ask a human instead of guessing.</pre>
-          <p class="ex-why caught" data-t="ex6_why">✅ Honest. No skill fits a birthday party, so instead of guessing, it says a person should decide.</p>
+          <p class="ex-why caught" data-t="ex6_why">✅ Honest. No skill fits a birthday party. So instead of guessing, it says a person should decide.</p>
         </li>
       </ol>
-      <p class="lesson" data-t="examples_lesson">The lesson: this router matches words, not meaning. Use its words and it routes well. Say the same thing another way and it gives up — or sends you to the wrong helper, without noticing. Many AI systems today let the AI itself read the request and pick, which is much smarter — but it can still pick wrong.</p>
-      <p id="examples-live" class="muted" role="status" data-ok="✓ All 6 examples were just checked live against the real demo code, in your browser." data-bad="⚠ Some examples no longer match the demo code — the lines marked ⚠ need updating."></p>
+      <p class="lesson" data-t="examples_lesson">The lesson: this router matches words, not meaning. Use its words, and it picks well. Say the same thing another way, and it gives up, or sends you to the wrong helper without noticing. Many AI systems today let the AI read the request and pick. That is much smarter, but it can still pick wrong.</p>
+      <p id="examples-live" class="muted" role="status" data-ok="✓ We just checked all 6 examples with the real demo code, right here in your browser." data-bad="⚠ Some examples don't match the demo code any more — the ones marked ⚠ need fixing."></p>
     </section>
 
     <section class="card">
       <h2 data-t="try_heading">Try it yourself</h2>
-      <p data-t="try_help">Tap an example to put it in the box, then change it a little and watch the scores change. Can you find another request that goes to the wrong helper?</p>
+      <p data-t="try_help">Tap an example to put it in the box. Then change it a little and watch the scores change. Can you find another request that goes to the wrong helper?</p>
       <div class="chips" id="chips">
         <button type="button" class="chip-btn" disabled data-try="fix the bug where login fails silently">fix the bug where login fails silently</button>
         <button type="button" class="chip-btn" disabled data-try="write the release notes for version 2">write the release notes for version 2</button>
@@ -130,9 +134,9 @@
         <button type="button" class="chip-btn" disabled data-try="help me plan a birthday party">help me plan a birthday party</button>
       </div>
       <p id="status" class="muted" role="status" aria-live="polite"
-         data-loading="Getting the router ready in your browser… (a one-time download of about 13 MB — after that it's quick)"
-         data-failed="Sorry — the router couldn't load in this browser. Check your internet connection and refresh the page, or try the terminal version on GitHub.">Getting the router ready in your browser…</p>
-      <noscript><p class="warning">This part needs JavaScript switched on in your browser. The 6 examples above work without it.</p></noscript>
+         data-loading="Getting the router ready in your browser… The first time takes a moment (about 13 MB). After that, it is quick."
+         data-failed="Sorry — the router couldn't start. Check the internet and reload the page. Or try the terminal version on GitHub.">Getting the router ready in your browser…</p>
+      <noscript><p class="warning">This part needs JavaScript turned on in your browser. The 6 examples above work without it.</p></noscript>
       <label class="try-label" for="try" data-t="try_label">Your request:</label>
       <textarea id="try" rows="2" disabled spellcheck="false" placeholder="Tap an example above, or type your own request"></textarea>
       <p class="try-label" data-t="try_result">What the router does:</p>
@@ -140,7 +144,7 @@
     </section>
 
     <section class="card links">
-      <p class="muted" data-t="private_note">Everything on this page runs inside your own browser. Nothing is sent anywhere, and nothing is saved. This page never talks to an AI — the router is a few lines of Python, running on your device.</p>
+      <p class="muted" data-t="private_note">Everything on this page runs on your own device. Nothing is sent anywhere, and nothing is saved. This page never talks to an AI. The router is a few lines of Python, running on your device.</p>
       <p class="muted" data-t="code_note">Curious how it works? The Python code behind this page is on GitHub. In a terminal, it can also let a real AI pick the skill, so you can compare the two.</p>
       <a class="link-card" href="https://github.com/khadir-syed/k_ai-basics/tree/main/04-router-playground" rel="noopener noreferrer" data-t="code_link">See the code on GitHub</a>
       <a class="link-card" href="https://github.com/khadir-syed/k_ai-basics/tree/main/04-router-playground#how-to-run-it-step-by-step" rel="noopener noreferrer" data-t="terminal_link">Run it in a terminal instead</a>

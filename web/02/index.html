@@ -27,12 +27,12 @@
     <header class="hero">
       <span class="badge" data-t="badge">k_ai-basics · Demo 02 · RAG</span>
       <h1 data-t="title">How AI looks things up</h1>
-      <p class="subtitle" data-t="subtitle">Find the right paragraph first, then answer</p>
+      <p class="subtitle" data-t="subtitle">Find the right part first, then answer</p>
     </header>
 
     <section class="card">
-      <p data-t="intro_1">Imagine a friend asks you a question about a storybook. You don't know the answer by heart, so you flip through the book, find the paragraph that talks about it, and read that part out loud.</p>
-      <p data-t="intro_2">AI tools do the same when they answer from your documents. First they look up the paragraphs that best match your question, then they answer using what they found. This is called RAG — "Retrieval-Augmented Generation", a fancy name for "look it up, then answer".</p>
+      <p data-t="intro_1">Imagine a friend asks you a question about a storybook. You don't know the answer by heart. So you flip through the book, find the right paragraph, and read it out.</p>
+      <p data-t="intro_2">AI tools do the same when they answer from your documents. First they find the paragraphs that best match your question. Then they answer using what they found. This is called RAG, short for "Retrieval-Augmented Generation". It simply means "look it up, then answer".</p>
       <p data-t="intro_3">This page shows the looking-up part. It searches 4 short stories, split into paragraphs:</p>
       <ul class="stories" id="stories">
         <li data-file="ant_and_grasshopper.txt">The Ant and the Grasshopper</li>
@@ -40,7 +40,7 @@
         <li data-file="three_little_pigs.txt">The Three Little Pigs</li>
         <li data-file="tortoise_and_hare.txt">The Tortoise and the Hare</li>
       </ul>
-      <p data-t="intro_4">It scores each paragraph by how many of your question's words it shares — rare words count more than common ones — and picks the best one.</p>
+      <p data-t="intro_4">It gives each paragraph a score for how many words it shares with your question, and picks the best one. Rare words count more than common ones.</p>
     </section>
 
     <section class="card">
@@ -69,7 +69,7 @@
             <p class="found-story"><span data-t="found_from">Found in:</span> The Three Little Pigs</p>
             <p class="found-text">The wolf huffed and puffed with all his might, but the brick house did not budge. No matter how hard he tried, the wolf could not blow the sturdy brick house down, and the three pigs stayed safe inside.</p>
           </div>
-          <p class="ex-why missed" data-t="ex3_why">❌ Right story, wrong part. You asked about the straw house, but it picked the brick house — because "wolf", "blow" and "house" show up there even more. It matches words, not meaning.</p>
+          <p class="ex-why missed" data-t="ex3_why">❌ Right story, wrong part. You asked about the straw house, but it picked the brick house. That paragraph has "wolf", "blow" and "house" even more times. It matches words, not meaning.</p>
         </li>
         <li class="ex">
           <p class="ex-what"><span data-t="ex_asked">You ask:</span> <code class="ex-in">What is the moral about lying?</code></p>
@@ -77,14 +77,14 @@
             <p class="found-story"><span data-t="found_from">Found in:</span> The Tortoise and the Hare</p>
             <p class="found-text">The moral of the story is simple: slow and steady wins the race.</p>
           </div>
-          <p class="ex-why missed" data-t="ex4_why">❌ Wrong story. The word "moral" matched the tortoise story. The story about lying says "lied", and to this search "lying" and "lied" are different words.</p>
+          <p class="ex-why missed" data-t="ex4_why">❌ Wrong story. The word "moral" matched the tortoise story. The story about lying says "lied", and to this search, "lying" and "lied" are different words.</p>
         </li>
         <li class="ex">
           <p class="ex-what"><span data-t="ex_asked">You ask:</span> <code class="ex-in">What happens when you are dishonest?</code></p>
           <div class="found" data-file="">
             <p class="found-text none" data-t="found_none">🤷 Nothing found — no story shares a word with this question.</p>
           </div>
-          <p class="ex-why missed" data-t="ex5_why">❌ Missed. The Boy Who Cried Wolf is all about being dishonest — but it never uses the words in this question, so the search finds nothing.</p>
+          <p class="ex-why missed" data-t="ex5_why">❌ Missed. The Boy Who Cried Wolf is all about being dishonest. But the story never uses the words in this question, so the search finds nothing.</p>
         </li>
         <li class="ex">
           <p class="ex-what"><span data-t="ex_asked">You ask:</span> <code class="ex-in">tax rules for crypto</code></p>
@@ -94,20 +94,20 @@
           <p class="ex-why caught" data-t="ex6_why">✅ Honest. None of the stories are about taxes, so it says so instead of making up an answer.</p>
         </li>
       </ol>
-      <p class="lesson" data-t="examples_lesson">The lesson: this search matches words, not meaning. Ask with the story's own words and it finds the right paragraph. Ask the same thing in other words and it misses, or picks the wrong one. Many AI tools today search by meaning instead — but the idea is the same: look it up first, then answer.</p>
-      <p id="examples-live" class="muted" role="status" data-ok="✓ All 6 examples were just checked live against the real demo code, in your browser." data-bad="⚠ Some examples no longer match the demo code — the lines marked ⚠ need updating."></p>
+      <p class="lesson" data-t="examples_lesson">The lesson: this search matches words, not meaning. Use the story's own words, and it finds the right paragraph. Say the same thing in other words, and it misses or picks the wrong one. Many AI tools today search by meaning instead. But the idea is the same: look it up first, then answer.</p>
+      <p id="examples-live" class="muted" role="status" data-ok="✓ We just checked all 6 examples with the real demo code, right here in your browser." data-bad="⚠ Some examples don't match the demo code any more — the ones marked ⚠ need fixing."></p>
     </section>
 
     <section class="card">
       <h2 data-t="try_heading">Try your own question</h2>
-      <p data-t="try_help">Ask anything about the 4 stories and see which paragraphs match best — and how well.</p>
-      <p class="muted" data-t="try_whole_words">Tip: the search only matches whole words — the same words the story uses (capital letters don't matter). "grasshopper" finds the story, but "grass" finds nothing — to this search, they are different words.</p>
-      <p class="warning" data-t="size_warning">This part needs a one-time download of up to 35 MB: Python itself, plus the search tool the demo uses. On mobile data, you may want to wait for Wi-Fi. After that, your browser keeps it and it's quick.</p>
+      <p data-t="try_help">Ask anything about the 4 stories. See which paragraphs match best, and how well.</p>
+      <p class="muted" data-t="try_whole_words">Tip: the search only matches whole words, the same words the story uses. Capital letters don't matter. "grasshopper" finds the story, but "grass" finds nothing. To this search, they are different words.</p>
+      <p class="warning" data-t="size_warning">This part needs a one-time download of up to 35 MB: Python, plus the search tool the demo uses. On mobile data, you may want to wait for Wi-Fi. After that, your browser keeps it, and it is quick.</p>
       <button id="load" class="btn" type="button" disabled data-t="load_button">Load the search</button>
       <p id="status" class="muted" role="status" aria-live="polite"
          data-loading="Getting the search ready in your browser… this can take a minute."
-         data-failed="Sorry — the search couldn't load in this browser. Check your internet connection and refresh the page, or try the terminal version on GitHub."></p>
-      <noscript><p class="warning">This part needs JavaScript switched on in your browser. The 6 examples above work without it.</p></noscript>
+         data-failed="Sorry — the search couldn't start. Check the internet and reload the page. Or try the terminal version on GitHub."></p>
+      <noscript><p class="warning">This part needs JavaScript turned on in your browser. The 6 examples above work without it.</p></noscript>
       <div id="try-area" hidden>
         <div class="chips" id="chips">
           <button type="button" class="chip-btn" data-try="Why was the grasshopper hungry in winter?">Why was the grasshopper hungry in winter?</button>
@@ -122,13 +122,13 @@
         <div id="results" aria-live="polite"
              data-top="The 5 paragraphs that match best:"
              data-best="Best match — shown as the answer:"
-             data-none="🤷 None of the stories share any words with your question, so there's nothing to answer from. Try asking about one of the stories."></div>
+             data-none="🤷 None of the stories share any words with your question, so there is nothing to answer from. Try asking about one of the stories."></div>
       </div>
     </section>
 
     <section class="card links">
-      <p class="muted" data-t="private_note">Everything on this page runs inside your own browser. Nothing is sent anywhere, and nothing is saved. This page never talks to an AI — it only does the looking-up part.</p>
-      <p class="muted" data-t="code_note">Curious how it works? The Python code behind this page is on GitHub. In a terminal, it can also hand the paragraphs it found to a real AI, to write an answer.</p>
+      <p class="muted" data-t="private_note">Everything on this page runs on your own device. Nothing is sent anywhere, and nothing is saved. This page never talks to an AI. It only does the looking-up part.</p>
+      <p class="muted" data-t="code_note">Curious how it works? The Python code behind this page is on GitHub. In a terminal, it can also give the paragraphs it found to a real AI, which writes an answer.</p>
       <a class="link-card" href="https://github.com/khadir-syed/k_ai-basics/tree/main/02-mini-rag" rel="noopener noreferrer" data-t="code_link">See the code on GitHub</a>
       <a class="link-card" href="https://github.com/khadir-syed/k_ai-basics/tree/main/02-mini-rag#how-to-run-it-step-by-step" rel="noopener noreferrer" data-t="terminal_link">Run it in a terminal instead</a>
     </section>

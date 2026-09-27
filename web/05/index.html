@@ -32,19 +32,19 @@
     </header>
 
     <section class="card">
-      <p data-t="intro_1">Imagine telling a friend a long story, but your friend has a tiny notepad that only fits a few lines. Every time the notepad is full and you say something new, your friend rubs out the oldest line to make room. Later, if you ask "what did I say at the start?" — it's gone. Your friend didn't choose to forget. The notepad was just full.</p>
-      <p data-t="intro_2">AI chatbots work the same way. They can only "see" a certain number of tokens at once — the little pieces words are cut into (see <a class="inline-link" href="../01/">Demo 01</a>). That limit is called the context window. When a chat gets too long, the oldest messages fall off the notepad.</p>
+      <p data-t="intro_1">Imagine telling a friend a long story. Your friend writes it on a tiny notepad that only fits a few lines. When the notepad is full and you say something new, your friend rubs out the oldest line to make room. Later, if you ask "What did I say at the start?", it is gone. Your friend didn't choose to forget. The notepad was just full.</p>
+      <p data-t="intro_2">AI chatbots work the same way. They can only "see" a certain number of tokens at once. Tokens are the small pieces words are cut into (see <a class="inline-link" href="../01/">Demo 01</a>). This limit is called the context window. When a chat gets too long, the oldest messages fall off the notepad.</p>
       <div id="counting">
-        <p data-t="counting_1">How are tokens counted? Each message is cut into tokens exactly the way GPT-2 does it in Demo 01, and the pieces are counted. For example, "Hi! My name is Priya." is 8 tokens:</p>
+        <p data-t="counting_1">How are tokens counted? Each message is cut into tokens the same way GPT-2 does it in Demo 01, and then the pieces are counted. For example, "Hi! My name is Priya." is 8 tokens:</p>
         <div class="count-example" data-text="Hi! My name is Priya."><ol class="tokens"><li data-id="17250"><code class="tok">Hi</code><span class="tok-id">17250</span></li><li data-id="0"><code class="tok">!</code><span class="tok-id">0</span></li><li data-id="2011"><code class="tok">·My</code><span class="tok-id">2011</span></li><li data-id="1438"><code class="tok">·name</code><span class="tok-id">1438</span></li><li data-id="318"><code class="tok">·is</code><span class="tok-id">318</span></li><li data-id="4389"><code class="tok">·Pri</code><span class="tok-id">4389</span></li><li data-id="3972"><code class="tok">ya</code><span class="tok-id">3972</span></li><li data-id="13"><code class="tok">.</code><span class="tok-id">13</span></li></ol></div>
-        <p data-t="counting_2">Roughly: a common word is 1 token, and punctuation like ! and . counts too. A name GPT-2 rarely saw, like Priya, gets cut into smaller pieces — "·Pri" + "ya" — and other languages and emoji take even more. (· marks a space, and the small number is each token's ID.)</p>
+        <p data-t="counting_2">Roughly, a common word is 1 token, and marks like ! and . count too. A name GPT-2 rarely saw, like Priya, is cut into smaller pieces: "·Pri" + "ya". Other languages and emoji take even more. (· marks a space, and the small number is each token's ID.)</p>
       </div>
-      <p data-t="intro_3">This page gives the AI a tiny notepad on purpose — just 30 tokens — so you can watch it fill up and see exactly which message gets rubbed out.</p>
+      <p data-t="intro_3">This page gives the AI a tiny notepad on purpose: just 30 tokens. That way, you can watch it fill up and see which message gets rubbed out.</p>
     </section>
 
     <section class="card">
       <h2 data-t="example_heading">Watch the notepad fill up</h2>
-      <p data-t="example_help">4 messages, one after another, with a notepad of 30 tokens. The bar shows how full it is after each one.</p>
+      <p data-t="example_help">4 messages, one after another, on a notepad of 30 tokens. The bar shows how full it is after each one.</p>
       <div class="ex" id="example" data-budget="30">
         <ol class="steps">
           <li class="step" data-tokens="8" data-used="8">
@@ -72,19 +72,19 @@
             <li><q class="msg">What is my name?</q> <span class="step-n">(5 tokens)</span></li>
         </ul>
         <p class="muted tok-note"><span data-t="count_pointer">How is a number like "+8 tokens" worked out?</span> <a class="inline-link" href="#counting" data-t="count_link">See how tokens are counted, at the top.</a></p>
-        <p class="ex-why missed" data-t="example_why">❌ At the very moment you ask "What is my name?", the message with your name is the one that falls off. The AI isn't being rude — it simply can't see that message any more.</p>
+        <p class="ex-why missed" data-t="example_why">❌ Just as you ask "What is my name?", the message with your name falls off. The AI isn't being rude. It simply can't see that message any more.</p>
       </div>
-      <p class="lesson" data-t="example_lesson">The lesson: an AI only remembers what still fits in its context window — always losing the oldest part first. Today's AIs have huge notepads, hundreds of thousands of tokens, so this happens much later. But it still happens in very long chats, which is why an AI can lose track of something you said early on.</p>
-      <p id="examples-live" class="muted" role="status" data-ok="✓ This example was just checked live against the real demo code, in your browser." data-bad="⚠ This example no longer matches the demo code — the steps need updating."></p>
+      <p class="lesson" data-t="example_lesson">The lesson: an AI only remembers what still fits in its context window, and it always loses the oldest part first. Today's AIs have huge notepads, with hundreds of thousands of tokens, so this happens much later. But it still happens in very long chats. That is why an AI can lose track of something you said early on.</p>
+      <p id="examples-live" class="muted" role="status" data-ok="✓ We just checked this example with the real demo code, right here in your browser." data-bad="⚠ This example doesn't match the demo code any more — the steps need fixing."></p>
     </section>
 
     <section class="card">
       <h2 data-t="try_heading">Try it yourself</h2>
-      <p data-t="try_help">Send messages and watch the notepad. Tap one of the messages below to send it, or type your own and press Enter. Want a bigger notepad? Change its size — that starts a new chat.</p>
+      <p data-t="try_help">Send messages and watch the notepad. Tap a message below to send it, or type your own and press Enter. Want a bigger notepad? Change its size. That starts a new chat.</p>
       <p id="status" class="muted" role="status" aria-live="polite"
-         data-loading="Getting the notepad ready in your browser… (a one-time download of about 15 MB — after that it's quick)"
-         data-failed="Sorry — the notepad couldn't load in this browser. Check your internet connection and refresh the page, or try the terminal version on GitHub.">Getting the notepad ready in your browser…</p>
-      <noscript><p class="warning">This part needs JavaScript switched on in your browser. The example above works without it.</p></noscript>
+         data-loading="Getting the notepad ready in your browser… The first time takes a moment (about 15 MB). After that, it is quick."
+         data-failed="Sorry — the notepad couldn't start. Check the internet and reload the page. Or try the terminal version on GitHub.">Getting the notepad ready in your browser…</p>
+      <noscript><p class="warning">This part needs JavaScript turned on in your browser. The example above works without it.</p></noscript>
       <p class="option-row">
         <label class="try-label" for="budget" data-t="budget_label">Notepad size:</label>
         <select id="budget" disabled>
@@ -115,15 +115,15 @@
            data-tokens-one="(1 token)"
            data-used="{used}/{budget} tokens — {count} message(s) remembered"
            data-rubbed="✗ Rubbed out to make room:"
-           data-toobig="This one message is {n} tokens — bigger than the whole {budget}-token notepad, so it can't fit at all. It was skipped, and your earlier messages are still safe. Try a bigger notepad."
+           data-toobig="This one message is {n} tokens. That is bigger than the whole {budget}-token notepad, so it can't fit. It was skipped, and your earlier messages are still safe. Try a bigger notepad."
            data-pieces="Your message, cut into tokens:"
            data-still="What the AI can still see:"
            data-gone="Already forgotten:"
-           data-empty="The notepad is empty. Send a message!"></div>
+           data-empty="The notepad is empty. Send a message."></div>
     </section>
 
     <section class="card links">
-      <p class="muted" data-t="private_note">Everything on this page runs inside your own browser. Nothing is sent anywhere, and nothing is saved. This page never talks to an AI — it only counts tokens with GPT-2's list of tokens, and follows the demo's forgetting rule.</p>
+      <p class="muted" data-t="private_note">Everything on this page runs on your own device. Nothing is sent anywhere, and nothing is saved. This page never talks to an AI. It only counts tokens using GPT-2's list, and follows the demo's forgetting rule.</p>
       <p class="muted" data-t="code_note">Curious how it works? The Python code behind this page is on GitHub, where you can run the same notepad in a terminal.</p>
       <a class="link-card" href="https://github.com/khadir-syed/k_ai-basics/tree/main/05-context-window" rel="noopener noreferrer" data-t="code_link">See the code on GitHub</a>
       <a class="link-card" href="https://github.com/khadir-syed/k_ai-basics/tree/main/05-context-window#how-to-run-it-step-by-step" rel="noopener noreferrer" data-t="terminal_link">Run it in a terminal instead</a>

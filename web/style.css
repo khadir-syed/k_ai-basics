@@ -312,3 +312,11 @@ select:focus-visible, input[type="text"]:focus-visible { outline: 2px solid var(
 .tok-letter { font-size: 18px; line-height: 1.2; color: var(--amber-soft); font-weight: 700; }
 .tok-note { margin: 0 0 10px; font-size: 13px; }
 .tok-ids { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 13px; color: var(--amber-soft); word-break: break-word; }
+
+/* "More detail" boxes: the exact technical wording, one tap away. */
+.grownups { margin: -4px 0 16px; }
+.grownups summary { cursor: pointer; color: var(--amber-soft); font-size: 14px; font-weight: 600; }
+.grownups p { margin: 6px 0 0; }
+/* Keep a verdict or lesson from sitting flush against the box above it. */
+.side + .ex-why { margin-top: 12px; }
+.ex + .lesson { margin-top: 16px; }

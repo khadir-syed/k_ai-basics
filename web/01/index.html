@@ -28,20 +28,24 @@
     <header class="hero">
       <span class="badge" data-t="badge">k_ai-basics · Demo 01 · Tokens</span>
       <h1 data-t="title">How AI reads words</h1>
-      <p class="subtitle" data-t="subtitle">Tiny pieces first, then a guess</p>
+      <p class="subtitle" data-t="subtitle">Small pieces first, then a guess</p>
     </header>
 
     <section class="card">
-      <p data-t="intro_1">Imagine a big box of Lego bricks. You can't build anything with one giant brick — you need lots of small ones that snap together.</p>
-      <p data-t="intro_2">AI is the same with words. It can't read a sentence the way we do. First it cuts the sentence into small pieces called tokens — a whole word, part of a word, or even a single letter. Each token has an ID number, and the AI only ever sees those numbers.</p>
-      <p data-t="intro_3">Then it does the one thing it's really built for: it guesses which token comes next. Everything an AI writes, it writes one guessed token at a time.</p>
-      <p id="ids" data-t="intro_ids">What's the number under each token? It's the token's ID. GPT-2 has a numbered list of 50,257 tokens, and "Once" is number 7454 on it. The number isn't worked out from the letters — it's simply where "Once" sits in the list. GPT-2 made its list by reading lots of text. It started with 256 basic building blocks (numbers 0 to 255: single letters, digits, symbols, and bits of other letters — a comma is number 11). Then, again and again, it glued together the two pieces it saw side by side most often, and gave each new piece the next number. "·the" was glued very early, so it's number 262. "Once" was made from "O" + "nce", and got 7454. So a small number usually means a very common piece. The AI never sees the letters O-n-c-e — only the number 7454.</p>
-      <p data-t="intro_4">This page uses GPT-2, a small AI that OpenAI released in 2019 — old and simple, which makes it perfect for seeing the pieces.</p>
+      <p data-t="intro_1">Think of a box of Lego. You can't build much with one giant brick. You need lots of small bricks that fit together.</p>
+      <p data-t="intro_2">AI treats words the same way. It can't read a sentence like we do. First it cuts the sentence into small pieces called tokens. A token can be a whole word, part of a word, or a single letter. Each token has an ID number, and the AI only sees those numbers.</p>
+      <p data-t="intro_3">Then it does the one job it is built for: it guesses which token comes next. Everything an AI writes, it writes one guessed token at a time.</p>
+      <p id="ids" data-t="intro_ids">What is the number under each token? It is the token's ID. GPT-2 has a numbered list of 50,257 tokens, a bit like seats in a huge cinema. "Once" sits in seat 7454. Common pieces were added to the list early, so they usually have small numbers. The AI never sees the letters O-n-c-e, only the number 7454.</p>
+      <details class="grownups">
+        <summary data-t="more_detail">More detail</summary>
+        <p class="muted" data-t="intro_ids_detail">What's the number under each token? It's the token's ID. GPT-2 has a numbered list of 50,257 tokens, and "Once" is number 7454 on it. The number isn't worked out from the letters — it's simply where "Once" sits in the list. GPT-2 made its list by reading lots of text. It started with 256 basic building blocks (numbers 0 to 255: single letters, digits, symbols, and bits of other letters — a comma is number 11). Then, again and again, it glued together the two pieces it saw side by side most often, and gave each new piece the next number. "·the" was glued very early, so it's number 262. "Once" was made from "O" + "nce", and got 7454. So a small number usually means a very common piece. The AI never sees the letters O-n-c-e — only the number 7454.</p>
+      </details>
+      <p data-t="intro_4">This page uses GPT-2, a small AI that OpenAI released in 2019. It is old and simple, which makes the pieces easy to see.</p>
     </section>
 
     <section class="card">
       <h2 data-t="examples_heading">6 examples: the pieces, and the guesses</h2>
-      <p class="muted" data-t="legend">· marks a space — it belongs to the token after it. Some letters, like Hindi letters or emoji, are cut into several tokens. A piece of a letter can't be drawn on its own, so it shows as �; the bracket underneath shows the letter those pieces make together.</p>
+      <p class="muted" data-t="legend">· marks a space. It belongs to the token after it. Some letters, like Hindi letters or emoji, are cut into several tokens. A piece of a letter can't be drawn on its own, so it shows as �. The bracket underneath shows the whole letter.</p>
       <ol class="examples" id="examples">
         <li class="ex">
           <p class="ex-what"><span data-t="ex_typed">You type:</span> <code class="ex-in">Once upon a time</code></p>
@@ -56,7 +60,7 @@
               <li class="match"><span class="match-story">he</span><span class="match-pct">3.7%</span><progress class="meter" max="100" value="3.7">3.7%</progress></li>
               <li class="match"><span class="match-story">there</span><span class="match-pct">2.9%</span><progress class="meter" max="100" value="2.9">2.9%</progress></li>
           </ol>
-          <p class="ex-why caught" data-t="ex1_why">✅ A confident guess: "," at 42.7%. GPT-2 has read countless stories that go "Once upon a time, there was…".</p>
+          <p class="ex-why caught" data-t="ex1_why">✅ A confident guess: "," at 42.7%. GPT-2 has read many stories that start "Once upon a time, there was…".</p>
         </li>
         <li class="ex">
           <p class="ex-what"><span data-t="ex_typed">You type:</span> <code class="ex-in">The cat sat on the</code></p>
@@ -71,7 +75,7 @@
               <li class="match"><span class="match-story">ground</span><span class="match-pct">5.2%</span><progress class="meter" max="100" value="5.2">5.2%</progress></li>
               <li class="match"><span class="match-story">edge</span><span class="match-pct">4.8%</span><progress class="meter" max="100" value="4.8">4.8%</progress></li>
           </ol>
-          <p class="ex-why" data-t="ex2_why">Sensible guesses — floor, bed, couch — but none of them is sure, because many words could come next.</p>
+          <p class="ex-why" data-t="ex2_why">Sensible guesses, like floor, bed and couch. But GPT-2 is not sure, because many words could come next.</p>
         </li>
         <li class="ex">
           <p class="ex-what"><span data-t="ex_typed">You type:</span> <code class="ex-in">The capital of France is</code></p>
@@ -86,7 +90,7 @@
               <li class="match"><span class="match-story">France</span><span class="match-pct">3.2%</span><progress class="meter" max="100" value="3.2">3.2%</progress></li>
               <li class="match"><span class="match-story">Paris</span><span class="match-pct">3.2%</span><progress class="meter" max="100" value="3.2">3.2%</progress></li>
           </ol>
-          <p class="ex-why missed" data-t="ex3_why">❌ Not a fact-finder. "Paris" comes 5th, at just 3.2% — "the" comes first. GPT-2 guesses which words usually come next in text; it doesn't look facts up. Newer, much bigger AIs are far better at this — but they work the same way.</p>
+          <p class="ex-why missed" data-t="ex3_why">❌ Not a fact-finder. "Paris" is only 5th, at 3.2%, and "the" is 1st. GPT-2 guesses which words usually come next. It does not look up facts. Newer, bigger AIs are much better at this, but they work the same way.</p>
         </li>
         <li class="ex">
           <p class="ex-what"><span data-t="ex_typed">You type:</span> <code class="ex-in">unbelievable</code></p>
@@ -101,7 +105,7 @@
               <li class="match"><span class="match-story">."</span><span class="match-pct">5.4%</span><progress class="meter" max="100" value="5.4">5.4%</progress></li>
               <li class="match"><span class="match-story">,"</span><span class="match-pct">3.7%</span><progress class="meter" max="100" value="3.7">3.7%</progress></li>
           </ol>
-          <p class="ex-why" data-t="ex4_why">One word, 4 tokens: "un", "bel", "iev", "able". Common words are often a single token; longer or rarer words get cut into pieces.</p>
+          <p class="ex-why" data-t="ex4_why">One word, 4 tokens: "un", "bel", "iev", "able". Common words are often one token. Long or rare words get cut into pieces.</p>
         </li>
         <li class="ex">
           <p class="ex-what"><span data-t="ex_typed">You type:</span> <code class="ex-in">Hello hello HELLO</code></p>
@@ -116,7 +120,7 @@
               <li class="match"><span class="match-story">!!</span><span class="match-pct">3.3%</span><progress class="meter" max="100" value="3.3">3.3%</progress></li>
               <li class="match"><span class="match-story">HELL</span><span class="match-pct">2.9%</span><progress class="meter" max="100" value="2.9">2.9%</progress></li>
           </ol>
-          <p class="ex-why" data-t="ex5_why">The same word, split 3 different ways: "Hello", "·hello" (with its space), and "·HELL" + "O". Capital letters and spaces change the tokens.</p>
+          <p class="ex-why" data-t="ex5_why">The same word, cut 3 different ways: "Hello", "·hello" (with its space), and "·HELL" + "O". Capital letters and spaces change the tokens.</p>
         </li>
         <li class="ex">
           <p class="ex-what"><span data-t="ex_typed">You type:</span> <code class="ex-in">नमस्ते</code></p>
@@ -131,17 +135,17 @@
               <li class="match"><span class="match-story">&lt;space&gt;</span><span class="match-pct">2.7%</span><progress class="meter" max="100" value="2.7">2.7%</progress></li>
               <li class="match"><span class="match-story">&lt;space&gt;</span><span class="match-pct">1.6%</span><progress class="meter" max="100" value="1.6">1.6%</progress></li>
           </ol>
-          <p class="ex-why" data-t="ex6_why">One Hindi word — it means "hello" — takes 12 tokens, while "Hello" in English takes 1. GPT-2 learned mostly from English, so other languages get cut into many more, smaller pieces. Each letter here is 2 tokens. Even its guesses are pieces of letters, shown as �.</p>
+          <p class="ex-why" data-t="ex6_why">One Hindi word (it means "hello") takes 12 tokens. "Hello" in English takes 1. GPT-2 learned mostly from English, so other languages are cut into many more pieces. Here, each letter is 2 tokens. Even its guesses are pieces of letters, shown as �.</p>
         </li>
       </ol>
-      <p class="lesson" data-t="examples_lesson">The lesson: AI doesn't see words, it sees numbered pieces — and it doesn't know facts, it guesses the most likely next piece. Today's AIs are thousands of times bigger than GPT-2, so their guesses are far better. But under the hood, they still read tokens and guess the next one.</p>
-      <p class="muted" data-t="recorded_note">📅 GPT-2's guesses were made on 26 September 2026, by running the terminal version of this demo. They aren't random: the same sentence always gets the same 5 guesses. Making new guesses needs the whole GPT-2 model (about 500 MB), so this page doesn't — but it does split text live, below.</p>
-      <p id="examples-live" class="muted" role="status" data-ok="✓ The tokens of all 6 examples were just checked live, in your browser, against the ones the terminal version made." data-bad="⚠ Some examples no longer match — the ones marked ⚠ need updating."></p>
+      <p class="lesson" data-t="examples_lesson">The lesson: AI does not see words. It sees numbered pieces. And it does not know facts. It guesses the most likely next piece. Today's AIs are thousands of times bigger than GPT-2, so they guess much better. But they still read tokens and guess the next one.</p>
+      <p class="muted" data-t="recorded_note">📅 GPT-2's guesses were made on 26 September 2026, using the terminal version of this demo. They are not random: the same sentence always gets the same 5 guesses. New guesses need the whole GPT-2 model (about 500 MB), so this page does not make them. But it does cut up your text live, below.</p>
+      <p id="examples-live" class="muted" role="status" data-ok="✓ We just checked the tokens of all 6 examples in your browser. They match the terminal version." data-bad="⚠ Some examples don't match any more — the ones marked ⚠ need fixing."></p>
     </section>
 
     <section class="card">
       <h2 data-t="try_heading">Split your own sentence</h2>
-      <p data-t="try_help">Type anything and watch it being cut into tokens, exactly the way GPT-2 does it. Try a long word, your name, a number, an emoji, or another language.</p>
+      <p data-t="try_help">Type anything and see it cut into tokens, just like GPT-2 does it. Try a long word, your name, a number, an emoji or another language.</p>
       <div class="chips" id="chips">
         <button type="button" class="chip-btn" disabled data-try="Once upon a time">Once upon a time</button>
         <button type="button" class="chip-btn" disabled data-try="unbelievable">unbelievable</button>
@@ -152,19 +156,19 @@
         <button type="button" class="chip-btn" disabled data-try="I love pizza 🍕">I love pizza 🍕</button>
       </div>
       <p id="status" class="muted" role="status" aria-live="polite"
-         data-loading="Getting the tokenizer ready in your browser… (a one-time download of about 15 MB — after that it's quick)"
-         data-failed="Sorry — the tokenizer couldn't load in this browser. Check your internet connection and refresh the page, or try the terminal version on GitHub.">Getting the tokenizer ready in your browser…</p>
-      <noscript><p class="warning">This part needs JavaScript switched on in your browser. The 6 examples above work without it.</p></noscript>
+         data-loading="Getting the tokenizer ready in your browser… The first time takes a moment (about 15 MB). After that, it is quick."
+         data-failed="Sorry — the tokenizer couldn't start. Check the internet and reload the page. Or try the terminal version on GitHub.">Getting the tokenizer ready in your browser…</p>
+      <noscript><p class="warning">This part needs JavaScript turned on in your browser. The 6 examples above work without it.</p></noscript>
       <label class="try-label" for="try" data-t="try_label">Your sentence:</label>
       <textarea id="try" rows="2" disabled spellcheck="false" placeholder="Tap an example above, or type your own"></textarea>
       <div id="try-output" aria-live="polite" data-count="{n} tokens" data-one="1 token"
            data-sees="What the AI actually sees — just the ID numbers:"></div>
-      <p class="muted" data-t="try_next">How many tokens can an AI keep in mind at once? That's Demo 05 — <a class="inline-link" href="../05/">watch an AI forget</a>.</p>
+      <p class="muted" data-t="try_next">How many tokens can an AI remember at once? See Demo 05 — <a class="inline-link" href="../05/">watch an AI forget</a>.</p>
     </section>
 
     <section class="card links">
-      <p class="muted" data-t="private_note">Everything on this page runs inside your own browser. Nothing is sent anywhere, and nothing is saved. This page never talks to an AI — it only uses GPT-2's list of tokens, not GPT-2 itself.</p>
-      <p class="muted" data-t="code_note">Curious how it works? The Python code behind this page is on GitHub. In a terminal, it runs the whole GPT-2 model, so it can guess the next token for any sentence you type.</p>
+      <p class="muted" data-t="private_note">Everything on this page runs on your own device. Nothing is sent anywhere, and nothing is saved. This page never talks to an AI. It only uses GPT-2's list of tokens, not GPT-2 itself.</p>
+      <p class="muted" data-t="code_note">Curious how it works? The Python code behind this page is on GitHub. In a terminal, it runs the whole GPT-2 model, so it can guess the next token for any sentence.</p>
       <a class="link-card" href="https://github.com/khadir-syed/k_ai-basics/tree/main/01-tokenizer-playground" rel="noopener noreferrer" data-t="code_link">See the code on GitHub</a>
       <a class="link-card" href="https://github.com/khadir-syed/k_ai-basics/tree/main/01-tokenizer-playground#how-to-run-it-step-by-step" rel="noopener noreferrer" data-t="terminal_link">Run it in a terminal instead</a>
     </section>

@@ -261,6 +261,11 @@ Follow the same pattern as the other pages, like `09/`:
 1. Make a folder `web/NN/` with an `index.html` and an `app.js`. The page
    loads the demo's own unchanged `.py` file with Pyodide, leads with a few
    clear ✅/❌ examples in plain words, and lets people tap to try.
+   Write the explanations so a child aged 5–7 can follow along with a
+   parent: short sentences, everyday words, a calm tone. Keep each real
+   term (like "token") once, with a plain explanation. Put exact technical
+   detail in a `<details class="grownups">` "More detail" box. Never reword
+   the demo's own output, its examples or saved AI answers.
 2. Add a card for it on the home page, [`index.html`](index.html).
 3. Add its checks to [`test_web.py`](test_web.py), so the examples can't
    drift from the code.

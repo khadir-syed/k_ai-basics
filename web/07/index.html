@@ -32,16 +32,16 @@
     </header>
 
     <section class="card">
-      <p data-t="intro_1">Imagine you ask a friend: "Get me a snack." They come back with a whole bag of crisps, three biscuits and a banana. Not wrong — just not what you wanted.</p>
+      <p data-t="intro_1">Imagine you ask a friend: "Get me a snack." They come back with a bag of crisps, three biscuits and a banana. Not wrong, just not what you wanted.</p>
       <p data-t="intro_2">Now you say: "Get me one green apple from the fruit bowl, cut into four slices, please." This time you get exactly that. Your friend didn't get smarter. You got clearer.</p>
-      <p data-t="intro_3">AI works the same way. The message you type is called a prompt, and small changes to it — saying what exactly, how long, what shape and who it's for — change the answer a lot.</p>
+      <p data-t="intro_3">AI works the same way. The message you type is called a prompt. Small changes to it change the answer a lot: say what exactly you want, how long, in what shape, and who it is for.</p>
     </section>
 
     <section class="card">
       <h2 data-t="pairs_heading">4 examples: a vague question vs a clear one</h2>
-      <p data-t="pairs_help">We asked a real AI each question and saved its answers. Look at how long each answer is — and whether it's what you'd actually want.</p>
-      <p id="saved-note" class="muted" data-t="saved_note">These are real answers from the AI model gpt-oss-120b, saved on 23 September 2026. Ask today and the words will differ, but the pattern usually holds.</p>
-      <p class="muted" data-t="format_note">AI tools write their answers with formatting symbols, like ## for a heading or | for a table. Chat apps turn those into headings and tables — and so does this page.</p>
+      <p data-t="pairs_help">We asked a real AI each question and saved its answers. Look at how long each answer is, and whether it is what you would actually want.</p>
+      <p id="saved-note" class="muted" data-t="saved_note">These are real answers from the AI model gpt-oss-120b, saved on 23 September 2026. If you ask today, the words will be different, but the pattern usually stays the same.</p>
+      <p class="muted" data-t="format_note">AI tools use symbols to format their answers, like ## for a heading or | for a table. Chat apps turn these into headings and tables, and so does this page.</p>
       <ol class="examples" id="pairs">
         <li class="ex pair">
           <p class="ex-what" data-t="p1_name">1. Too vague</p>
@@ -127,18 +127,18 @@
           <p class="muted score-line"><span data-t="checklist">Checklist score:</span> <span class="score">0/5 → 4/5</span></p>
         </li>
       </ol>
-      <noscript><p class="warning">Showing the AI's answers needs JavaScript switched on in your browser.</p></noscript>
-      <p class="muted" data-t="cut_note">Some of the long answers stop mid-sentence: the AI was still going when it reached the length limit we gave it.</p>
-      <p class="lesson" data-t="pairs_lesson">The lesson: a vague question gets a long answer about everything. Say what exactly, what shape, how long and who it's for — and you get what you wanted.</p>
+      <noscript><p class="warning">Showing the AI's answers needs JavaScript turned on in your browser.</p></noscript>
+      <p class="muted" data-t="cut_note">Some long answers stop in the middle of a sentence. The AI was still writing when it reached the length limit we gave it.</p>
+      <p class="lesson" data-t="pairs_lesson">The lesson: a vague question gets a long answer about everything. Say what exactly you want, in what shape, how long and who it is for, and you get what you wanted.</p>
       <p id="answers-status" class="muted" role="status"
          data-words="words"
          data-show="Show all" data-less="Show less"
-         data-failed="Sorry — the saved answers couldn't load. Check your internet connection and refresh the page."></p>
+         data-failed="Sorry — the saved answers couldn't load. Check the internet and reload the page."></p>
     </section>
 
     <section class="card">
       <h2 data-t="check_heading">Check your own question</h2>
-      <p data-t="check_help">A simple checklist looks for the 5 ingredients of a clear question. Tap a vague example, then add details — and watch the score go up.</p>
+      <p data-t="check_help">A simple checklist looks for the 5 parts of a clear question. Tap a vague example, then add details, and watch the score go up.</p>
       <div class="chips" id="chips">
         <button type="button" class="chip-btn" disabled data-try="Write about dogs">Write about dogs</button>
         <button type="button" class="chip-btn" disabled data-try="Tell me about exercise">Tell me about exercise</button>
@@ -148,16 +148,16 @@
       <label class="try-label" for="try" data-t="try_label">Your question for an AI:</label>
       <textarea id="try" rows="3" disabled spellcheck="false" placeholder="Tap an example above, or type your own question"></textarea>
       <p id="status" class="muted" role="status" aria-live="polite"
-         data-loading="Getting the checklist ready in your browser… (a one-time download of about 13 MB — after that it's quick)"
-         data-failed="Sorry — the checklist couldn't load in this browser. Check your internet connection and refresh the page, or try the terminal version on GitHub.">Getting the checklist ready in your browser…</p>
+         data-loading="Getting the checklist ready in your browser… The first time takes a moment (about 13 MB). After that, it is quick."
+         data-failed="Sorry — the checklist couldn't start. Check the internet and reload the page. Or try the terminal version on GitHub.">Getting the checklist ready in your browser…</p>
       <p id="check-score" class="check-score" aria-live="polite" data-label="Checklist score:"></p>
       <ul id="check-list" class="check-list" data-tip="tip:"></ul>
-      <p class="warning" data-t="not_grade">This is a reminder list, not a grade. It only spots certain words — it can't tell if your question makes sense. "You are a list of 5 words for kids" is nonsense, but it scores 4/5. And a quick question doesn't need all 5.</p>
-      <p id="checks-live" class="muted" data-ok="✓ The examples above were just checked live against the real demo code, in your browser." data-bad="⚠ Some examples no longer match the demo code — the ones marked ⚠ need updating."></p>
+      <p class="warning" data-t="not_grade">This is a reminder list, not a grade. It only spots certain words. It can't tell if your question makes sense. "You are a list of 5 words for kids" makes no sense, but it scores 4/5. And a quick question doesn't need all 5.</p>
+      <p id="checks-live" class="muted" data-ok="✓ We just checked the examples above with the real demo code, right here in your browser." data-bad="⚠ Some examples don't match the demo code any more — the ones marked ⚠ need fixing."></p>
     </section>
 
     <section class="card links">
-      <p class="muted" data-t="private_note">Everything on this page runs inside your own browser. Nothing is sent anywhere, and nothing is saved. This page never talks to an AI — it shows answers that were saved earlier.</p>
+      <p class="muted" data-t="private_note">Everything on this page runs on your own device. Nothing is sent anywhere, and nothing is saved. This page never talks to an AI. It shows answers that were saved earlier.</p>
       <p class="muted" data-t="code_note">Curious how it works? The Python code behind this page is on GitHub.</p>
       <a class="link-card" href="https://github.com/khadir-syed/k_ai-basics/tree/main/07-prompt-playground" rel="noopener noreferrer" data-t="code_link">See the code on GitHub</a>
       <a class="link-card" href="https://github.com/khadir-syed/k_ai-basics/tree/main/07-prompt-playground#how-to-run-it-step-by-step" rel="noopener noreferrer" data-t="terminal_link">Run it in a terminal instead</a>
