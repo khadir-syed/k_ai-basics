@@ -1,6 +1,9 @@
 # k_ai-basics
 
-> Clone it, run one command, and watch how AI actually works — right in your terminal, or for some demos right in your web browser. No sign-ups, no server of ours, no credit card.
+> 🌐 **Not a coder? See how AI works, in plain words with real examples — nothing to install:**
+> https://khadir-syed.github.io/k_ai-basics/web/
+
+> Clone it, run one command, and watch how AI actually works — right in your terminal, or in your web browser. No sign-ups, no server of ours, no credit card.
 
 [![Links: K THE TECHMAN](https://img.shields.io/badge/K_THE_TECHMAN-All_links-D97706?style=flat-square&labelColor=181512)](https://khadir-syed.github.io/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-D97706?style=flat-square&labelColor=181512)](LICENSE)
