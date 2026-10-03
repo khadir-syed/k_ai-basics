@@ -25,10 +25,10 @@ must pass all seven before it goes in:
 
 ## Web pages (`web/`)
 - [ ] Pages load the demo's own unchanged `.py` file — no copied or rewritten demo logic
-- [ ] Every page keeps its strict `Content-Security-Policy`: only its own files, the pinned Pyodide from jsDelivr, and the GitHub profile photo; no inline scripts
+- [ ] Every page keeps its strict `Content-Security-Policy`: only its own files, the pinned Pyodide from jsDelivr, the GitHub profile photo, and `khadir-syed.goatcounter.com` for the visit count; no inline scripts
 - [ ] Pyodide is pinned to one exact version, the same in every demo page's `index.html` and `app.js`, and the `integrity="sha384-…"` fingerprint matches that version (see [web/README.md](web/README.md#upgrading-pyodide-read-this-first))
 - [ ] Text is shown with `textContent` only — no `innerHTML`, `eval`, or `document.write`
-- [ ] No cookies, storage, analytics or tracking; nothing a visitor types is sent anywhere
+- [ ] No cookies, storage or tracking; nothing a visitor types is sent anywhere. The only analytics is `web/analytics.js`: a cookie-free GoatCounter visit count that sends the page path only, from the live site only
 - [ ] No `--key` mode and no API keys on the web
 - [ ] Examples use only made-up data (IDs starting `000`, test card numbers, `example.com` emails), and `python web/test_web.py` passes
 - [ ] The publishing workflow's actions are pinned to full commit codes, with least-privilege permissions

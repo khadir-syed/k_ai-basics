@@ -5,9 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Only this site's own files, the pinned Pyodide from jsDelivr and the
        GitHub profile photo (the tab icon) may load.
-       Nothing on this page sends data anywhere. -->
+       The only thing sent is a cookie-free visit count to GoatCounter
+       (see ../analytics.js); nothing you type ever leaves the page. -->
   <meta http-equiv="Content-Security-Policy"
-        content="default-src 'none'; script-src 'self' https://cdn.jsdelivr.net 'wasm-unsafe-eval'; connect-src 'self' https://cdn.jsdelivr.net; style-src 'self'; img-src 'self' https://avatars.githubusercontent.com; base-uri 'none'; form-action 'none'">
+        content="default-src 'none'; script-src 'self' https://cdn.jsdelivr.net 'wasm-unsafe-eval'; connect-src 'self' https://cdn.jsdelivr.net https://khadir-syed.goatcounter.com; style-src 'self'; img-src 'self' https://avatars.githubusercontent.com; base-uri 'none'; form-action 'none'">
   <meta name="referrer" content="no-referrer">
   <meta name="description" content="Watch an AI forget the start of a chat once its memory is full — and see exactly which message goes. Runs in your browser, nothing to install.">
   <title>Why AI forgets — k_ai-basics</title>
@@ -18,6 +19,7 @@
           integrity="sha384-hYKrcQ7FiKU7f1c92md9N2eh7BoBVX4CPkNDfQyyVclsjZevvDOBUkajGcYk1EF8"
           crossorigin="anonymous"></script>
   <script src="../gpt2/tokens.js" defer></script>
+  <script src="../analytics.js" defer></script>
   <script src="app.js" defer></script>
 </head>
 <body>
@@ -123,7 +125,7 @@
     </section>
 
     <section class="card links">
-      <p class="muted" data-t="private_note">Everything on this page runs on your own device. Nothing is sent anywhere, and nothing is saved. This page never talks to an AI. It only counts tokens using GPT-2's list, and follows the demo's forgetting rule.</p>
+      <p class="muted" data-t="private_note">Everything on this page runs on your own device. Nothing you type is sent anywhere, and nothing is saved. This page never talks to an AI. It only counts tokens using GPT-2's list, and follows the demo's forgetting rule.</p>
       <p class="muted" data-t="code_note">Curious how it works? The Python code behind this page is on GitHub, where you can run the same notepad in a terminal.</p>
       <a class="link-card" href="https://github.com/khadir-syed/k_ai-basics/tree/main/05-context-window" rel="noopener noreferrer" data-t="code_link">See the code on GitHub</a>
       <a class="link-card" href="https://github.com/khadir-syed/k_ai-basics/tree/main/05-context-window#how-to-run-it-step-by-step" rel="noopener noreferrer" data-t="terminal_link">Run it in a terminal instead</a>

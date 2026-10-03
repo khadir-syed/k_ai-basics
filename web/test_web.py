@@ -357,4 +357,14 @@ home = read("index.html")
 for demo in DEMOS:
     assert f'href="{demo}/"' in home, demo
 
+# Every page counts visits the same cookie-free way, and its CSP allows only
+# that one counter. analytics.js may send nothing but the page's path.
+for page in ["index.html"] + [f"{demo}/index.html" for demo in DEMOS]:
+    html_text = read(page)
+    assert re.search(r'<script src="(\.\./)?analytics\.js" defer></script>', html_text), page
+    assert html_text.count("https://khadir-syed.goatcounter.com") == 1, page
+counter = read("analytics.js")
+assert re.findall(r"URLSearchParams\(\{ (.*?) \}\)", counter) == ["p: location.pathname, rnd: Math.random().toString(36).slice(2)"], counter
+assert 'endsWith(".github.io")' in counter
+
 print("All checks passed.")

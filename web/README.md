@@ -80,14 +80,15 @@ flowchart LR
     G --> P["The browser downloads\nPyodide once (~13 MB)"]
     P --> R["The page loads the demo's\nreal .py file"]
     R --> O["The demo runs inside\nthe visitor's browser"]
-    O --> S["Results on screen —\nnothing is sent anywhere"]
+    O --> S["Results on screen —\nnothing you type is sent anywhere"]
 ```
 
 ## What's in this folder
 
 | File | What it does |
 |---|---|
-| [`index.html`](index.html) | The home page: the brand header and a card for each demo. No scripts at all. The photo (and every page's tab icon) loads straight from the GitHub profile, so a new profile photo shows up by itself — no image files are kept here. |
+| [`index.html`](index.html) | The home page: the brand header and a card for each demo. Its only script is `analytics.js`. The photo (and every page's tab icon) loads straight from the GitHub profile, so a new profile photo shows up by itself — no image files are kept here. |
+| [`analytics.js`](analytics.js) | Counts visits with [GoatCounter](https://www.goatcounter.com), with no cookies. It sends only the page's address (like `/k_ai-basics/web/09/`), and only from the live site — never anything a visitor types. Every page loads it. |
 | `01/` to `10/` — each one's `index.html` | One page per demo. **All the English text lives here**, so it reads instantly — even before (or without) any scripts. |
 | [`01/app.js`](01/app.js) | Loads Pyodide and tiktoken, builds GPT-2's tokenizer from [`gpt2/`](gpt2/), re-checks the 6 examples' tokens live, and splits your own sentence into tokens. |
 | [`02/app.js`](02/app.js) | When the visitor taps "Load the search": loads Pyodide and scikit-learn, gives it the real `ask.py` and the 4 stories, re-checks the 6 examples live, then shows the top 5 matching paragraphs for any question. |
@@ -241,16 +242,19 @@ fingerprint or version is wrong.
 
 - **Strict content rules.** Each page has a `Content-Security-Policy` that
   only lets it load its own files, the pinned Pyodide from jsDelivr, and the
-  GitHub profile photo (the home page: its own files and the photo only). No
-  other website can be contacted. Demos 02 and 06 get scikit-learn, and
+  GitHub profile photo (the home page: its own files and the photo only). The
+  only other website that can be contacted is `khadir-syed.goatcounter.com`,
+  for the visit count. Demos 02 and 06 get scikit-learn, and
   Demos 01 and 05 get tiktoken, from
   jsDelivr, and Pyodide checks each of its files against a fingerprint
   before using it.
 - **No scripts inside the HTML.** Scripts live in each demo's `app.js` only.
 - **Text is always shown as plain text** (`textContent`), never as HTML —
   so nothing typed into the page can turn into code.
-- **No cookies, no storage, no analytics, no tracking,** and no forms that
-  send anything anywhere.
+- **No cookies, no storage, no tracking,** and no forms that send anything
+  anywhere. The only analytics is a cookie-free visit count: our own
+  `analytics.js` sends the page's address to GoatCounter (we never load
+  GoatCounter's script), and nothing else.
 - **Only made-up data** in examples: ID numbers starting with `000`,
   standard test card numbers, and emails at `example.com`.
 
